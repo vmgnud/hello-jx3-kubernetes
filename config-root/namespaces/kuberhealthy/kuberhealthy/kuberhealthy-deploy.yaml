@@ -87,12 +87,12 @@ spec:
             tcpSocket:
               port: 8080
             timeoutSeconds: 1
-#          resources:
-#            requests:
-#              cpu: 400m
-#              memory: 300Mi
-#            limits:
-#              cpu: 2
-#              memory: 1Gi
+          resources:
+            requests:
+              cpu: 400m
+              memory: 300Mi
+            limits:
+              cpu: 2
+              memory: 1Gi
       restartPolicy: Always
       terminationGracePeriodSeconds: 60
