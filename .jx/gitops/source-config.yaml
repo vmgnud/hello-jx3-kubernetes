@@ -9,6 +9,7 @@ spec:
     providerKind: github
     repositories:
     - name: hello-jx3-python-htpp
+    - name: hello-jx3-python-http
     scheduler: in-repo
   slack:
     channel: '#jenkins-x-pipelines'
