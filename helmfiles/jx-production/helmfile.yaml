@@ -1,0 +1,17 @@
+filepath: ""
+environments:
+  default:
+    values:
+    - jx-values.yaml
+namespace: jx-production
+repositories:
+- name: dev
+  url: http://bucketrepo.jx.svc.cluster.local/bucketrepo/charts
+releases:
+- chart: dev/hello-jx3-python-http-2
+  version: 0.0.5
+  name: hello-jx3-python-http-2
+  values:
+  - jx-values.yaml
+templates: {}
+renderedvalues: {}

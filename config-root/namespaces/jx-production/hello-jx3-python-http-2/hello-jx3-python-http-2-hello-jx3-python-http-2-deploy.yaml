@@ -1,0 +1,61 @@
+# Source: hello-jx3-python-http-2/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-jx3-python-http-2-hello-jx3-python-http-2
+  labels:
+    draft: draft-app
+    chart: "hello-jx3-python-http-2-0.0.5"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'hello-jx3-python-http-2'
+    wave.pusher.com/update-on-config-change: 'true'
+  namespace: jx-production
+spec:
+  selector:
+    matchLabels:
+      app: hello-jx3-python-http-2-hello-jx3-python-http-2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        draft: draft-app
+        app: hello-jx3-python-http-2-hello-jx3-python-http-2
+    spec:
+      serviceAccountName: hello-jx3-python-http-2-hello-jx3-python-http-2
+      containers:
+        - name: hello-jx3-python-http-2
+          image: "ghcr.io/vmgnud/hello-jx3-python-http-2:0.0.5"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: VERSION
+              value: 0.0.5
+          envFrom: null
+          ports:
+            - name: http
+              containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 400m
+              memory: 256Mi
+            requests:
+              cpu: 200m
+              memory: 128Mi
+      terminationGracePeriodSeconds:
+      imagePullSecrets:
+        - name: "tekton-container-registry-auth"

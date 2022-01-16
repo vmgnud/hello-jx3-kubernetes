@@ -1,0 +1,20 @@
+# Source: hello-jx3-python-http-2/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-jx3-python-http-2
+  labels:
+    chart: "hello-jx3-python-http-2-0.0.5"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'hello-jx3-python-http-2'
+  namespace: jx-production
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: hello-jx3-python-http-2-hello-jx3-python-http-2
