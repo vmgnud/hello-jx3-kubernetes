@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - vmgnud/hello-jx3-kubernetes
-      target_url: http://lighthouse-jx.192.168.200.101.nip.ip/merge/status
+      target_url: http://lighthouse-jx.192.168.200.101.nip.io/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null
