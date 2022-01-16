@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: vmgnud
+    provider: github
+    repository: hello-jx3-python-http-2
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: vmgnud-hello-jx3-python-http-2
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/vmgnud/hello-jx3-python-http-2.git
+  org: vmgnud
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: hello-jx3-python-http-2
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/vmgnud/hello-jx3-python-http-2
