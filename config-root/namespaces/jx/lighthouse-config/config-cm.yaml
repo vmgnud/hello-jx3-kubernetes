@@ -8,6 +8,7 @@ data:
     in_repo_config:
       enabled:
         vmgnud/hello-jx3-kubernetes: true
+        vmgnud/hello-jx3-python-htpp: true
     plank: {}
     pod_namespace: jx
     prowjob_namespace: jx
@@ -20,6 +21,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         vmgnud/hello-jx3-kubernetes: merge
+        vmgnud/hello-jx3-python-htpp: merge
       queries:
       - labels:
         - approved
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - vmgnud/hello-jx3-kubernetes
+        - vmgnud/hello-jx3-python-htpp
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - vmgnud/hello-jx3-kubernetes
+        - vmgnud/hello-jx3-python-htpp
       target_url: http://lighthouse-jx.192.168.200.101.nip.io/merge/status
 kind: ConfigMap
 metadata:
